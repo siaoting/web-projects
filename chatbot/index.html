@@ -1,0 +1,70 @@
+<html>
+  <head>
+    <title>Chat Room</title>
+    <link rel="stylesheet" href="css/bootstrap.css"/>
+    <link rel="stylesheet" href="css/custom.css"/>    
+    <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="https://sdk.amazonaws.com/js/aws-sdk-2.4.8.min.js"></script>
+    <script src="js/aws-cognito-sdk.js"></script>
+    <script src="js/amazon-cognito-auth.min.js"></script>
+    <script src="js/amazon-cognito-identity.js"></script>
+    <script src="js/js.cookie.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="js/auth.js"></script>
+    <script type="text/javascript" src="js/lib/axios/dist/axios.standalone.js"></script>
+    <script type="text/javascript" src="js/lib/CryptoJS/rollups/hmac-sha256.js"></script>
+    <script type="text/javascript" src="js/lib/CryptoJS/rollups/sha256.js"></script>
+    <script type="text/javascript" src="js/lib/CryptoJS/components/hmac.js"></script>
+    <script type="text/javascript" src="js/lib/CryptoJS/components/enc-base64.js"></script>
+    <script type="text/javascript" src="js/lib/url-template/url-template.js"></script>
+    <script type="text/javascript" src="js/lib/apiGatewayCore/sigV4Client.js"></script>
+    <script type="text/javascript" src="js/lib/apiGatewayCore/apiGatewayClient.js"></script>
+    <script type="text/javascript" src="js/lib/apiGatewayCore/simpleHttpClient.js"></script>
+    <script type="text/javascript" src="js/lib/apiGatewayCore/utils.js"></script>
+    <script type="text/javascript" src="js/apigClient.js"></script>
+    <script language="JavaScript">
+        window.onload = function() {
+            //var name = test()
+            var auth = initCognitoSDK();
+            var httpRequestResponse = window.location.href
+            if (httpRequestResponse.indexOf("code") < 0) {
+                console.log("Need sign in")
+                window.open('https://goo.gl/junrmp','_self');
+                return
+            }
+            auth.parseCognitoWebResponse(httpRequestResponse);
+            window.username = auth.getCurrentUser()
+            window.auth = auth
+            // window.session = auth.getSession()
+            console.log("onload:" + window.username)
+          
+        }; 
+    </script>
+  </head>
+  <body>
+
+    <div class="container">
+      <div class="page-header text-center">
+        <h1>Chat Room</h1>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-6 col-xs-offset-3">
+          <ul class="list-group js-chat-log">
+          </ul>
+
+          <div class="input-group input-group-lg">
+            <input type="text" class="form-control js-text" placeholder="Type something to begin..."/>
+            <span class="input-group-btn">
+              <button class="btn btn-primary js-say">Submit</button>
+            </span>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+
+    <script src="js/chatroom.js"></script>
+
+  </body>
+</html>
