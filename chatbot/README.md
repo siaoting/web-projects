@@ -1,7 +1,7 @@
-#Chat Robot
+# Chat Robot
 This is a serverless, microservice-driven chat robot
 
-#Tech
+# Tech
 AWS, AWS API gateway with CORS, AWS Lambda, AWS Cognito, AWS IAM, AWS S3, Swagger API 
 
 ## Team ID: 1
