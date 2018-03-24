@@ -9,8 +9,9 @@ AWS, AWS API gateway with CORS, AWS Lambda, AWS Cognito, AWS IAM, AWS S3, Swagge
 2. Sriharsha Sammeta(vs2626)
 
 ## User Guide
-![Login](login.jpg) 
-![Chat](chat.jpg) 
+Login | Chat
+---- | ----
+![Login](login.jpg)  | ![Chat](chat.jpg) 
 
 ## Usecases
 1. Hi
