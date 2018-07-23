@@ -4,13 +4,13 @@ function test() {
 window.username = 'Unknown'
 function initCognitoSDK() {
     var authData = {
-            ClientId : '3h7hk1qpiilfmgpcf3lolov65i', // Your client id here
-            AppWebDomain : '6998chatroom.auth.us-east-1.amazoncognito.com', // Exclude the "https://" part. 
+            ClientId : '', // Your client id here
+            AppWebDomain : '', // Exclude the "https://" part. 
             TokenScopesArray : ['openid','email'], // like ['openid','email','phone']...
-            RedirectUriSignIn : 'https://s3.amazonaws.com/6998chatroom/index.html',
-            RedirectUriSignOut : 'https://s3.amazonaws.com/6998chatroom/index.html',
-            IdentityProvider : 'cognito-idp.us-east-1.amazonaws.com/us-east-1_wt15rIwSY', 
-            UserPoolId : 'us-east-1_wt15rIwSY', 
+            RedirectUriSignIn : '',
+            RedirectUriSignOut : '',
+            IdentityProvider : '', 
+            UserPoolId : '', 
             AdvancedSecurityDataCollectionFlag : false //<TODO: boolean value indicating whether you want to enable advanced security data collection>
     };
     AWS.config.update({region: 'us-east-1'});
@@ -24,9 +24,9 @@ function initCognitoSDK() {
                     //console.log(idToken)
                     window.username = result.getAccessToken().getUsername()
                     AWS.config.credentials = new AWS.CognitoIdentityCredentials({
-                        IdentityPoolId: "us-east-1:e457aadb-de01-459f-bf96-0f92ea1aad60",
+                        IdentityPoolId: "",
                         Logins: {
-                              'cognito-idp.us-east-1.amazonaws.com/us-east-1_wt15rIwSY': result.getIdToken().getJwtToken()
+                              '': result.getIdToken().getJwtToken()
                         }
                     });
 
